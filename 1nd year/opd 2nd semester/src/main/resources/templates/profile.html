@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<!--Профиль пользователя. Будет отображаться информация о нем(мыло, возраст пол и тд). Отсюда можно перейти в режим эксперта, право на это настрою чуть позже-->
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль</title>
+</head>
+<body>
+<div th:if="${test}">
+    <div th:replace="~{blocks/header_2 :: header}"></div>
+</div>
+<div th:if="${not test}">
+    <div th:replace="~{blocks/header :: header}"></div>
+</div>
+
+<div class="main">
+    <p>
+    <div class="button">
+        Welcome back, sir <span th:text="${user.getUsername()}"></span><br>
+        Your email address is <span th:text="${user.getEmail()}"></span><br><br><br>
+        <!--    <div th:if="${exp}">-->
+        <a href="/expert">Режим эксперта</a><br><br>
+        <!--    </div>-->
+        <!--        <div th:text="${q}"></div>-->
+        <input type="hidden" id="q" th:value="${q}">
+        <input type="hidden" id="exp" th:value="${exp}">
+        <!--        <div th:text="${exp}"></div>-->
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" class="button">Sign out</button>
+
+        </form>
+    </div>
+    </p>
+</div>
+<script>
+    console.log(typeof document.getElementById('q').value)
+    console.log(typeof document.getElementById('exp').value)
+</script>
+</body>
+</html>

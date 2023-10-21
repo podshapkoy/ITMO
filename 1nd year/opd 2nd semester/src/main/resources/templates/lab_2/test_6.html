@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Звуковой сигнал и оценка времени реакции</title>
+    <style>
+
+        #circle-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(211, 211, 211, 0.70);
+            border-radius: 50%;
+        }
+
+        #circle {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: red;
+            transform: translate(-50%, -50%);
+        }
+
+        #star {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            background-color: yellow;
+            transform: translate(50%, -50%);
+        }
+
+        #test-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{blocks/for_tests_with_time}"></div>
+<div id="test-container">
+    <h1>Нажмите на space, когда круг дойдет до отметки</h1>
+    <div id="circle-container">
+        <div id="circle"></div>
+        <div id="star"></div>
+    </div>
+    <label id="words">Выберите желаемое время прохождения теста (от 2 до 45 минут):
+        <input type="text" id="chosenTimeS" required/>
+    </label>
+    <button id="startButton">Начать</button>
+</div>
+
+<script>
+    let timeTaken = 0;
+    let circleSpeed;
+    let clicked = false;
+    let chosenTimeS = document.getElementById('chosenTimeS');
+    let words = document.getElementById('words');
+    let testMode = false;
+    let startTime;
+    let reactionTimes = [];
+    let missTimes = 0;
+    let chosenTime;
+    let wholeCircle = false;
+    let d = [];
+    let firstTime = true;
+    let changerSpeed = 8.3;
+    let reactionTime;
+
+    function showResults() {
+        clicked = true;
+        circleSpeed = 0;
+        localStorage.setItem('reactionTimes', JSON.stringify(reactionTimes));
+        localStorage.setItem('missTimes', JSON.stringify(missTimes));
+        localStorage.setItem('chosenTime', JSON.stringify(chosenTime));
+        window.location.replace('/tests/test_6/test_result ');
+
+    }
+
+    function updateSpeed() {
+        let speed = [1]
+        circleSpeed = speed[Math.floor(Math.random() * speed.length)]
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        let circleContainer = document.getElementById('circle-container');
+        let circle = document.getElementById('circle');
+        const star = document.getElementById('star');
+        let startButton = document.getElementById('startButton');
+
+        let reactionTime = 0;
+        let circlePosition = 0;
+        updateSpeed();
+
+        function updateCircle() {
+            updateProgressBar()
+            let radius = circleContainer.offsetWidth / 2;
+            let angle = (circlePosition / 180) * Math.PI;
+            let circleX = radius * Math.cos(angle) + radius;
+            let circleY = radius * Math.sin(angle) + radius;
+
+            circle.style.left = circleX + 'px';
+            circle.style.top = circleY + 'px';
+
+            if (circlePosition === 180) {
+                clicked = false;
+                reactionTime = new Date().getTime() + 180 * changerSpeed / circleSpeed;
+            } else if (circlePosition === 360) {
+                if (wholeCircle) {
+                    missTimes++;
+                }
+                reactionTime = new Date().getTime();
+                wholeCircle = true;
+                clicked = false;
+                updateSpeed();
+            }
+
+            if (circlePosition >= 360) {
+
+                circlePosition = 0;
+            }
+
+            circlePosition += circleSpeed;
+            if (firstTime) {
+                if (d.length < 5 && reactionTime != 0 && firstTime) {
+                    d.push(new Date().getTime() - reactionTime)
+                } else if (firstTime && d.length == 5) {
+                    let ds = [];
+                    firstTime = false;
+                    for (let i = 0; i < 4; i++) {
+                        ds.push(d[i] - d[i + 1])
+                    }
+                    changerSpeed = Math.abs(ds.reduce((accumulator, currentValue) => accumulator + currentValue, 0) / ds.length);
+                    reactionTime = new Date().getTime() + 180 * changerSpeed / circleSpeed;
+                    console.log(changerSpeed)
+                }
+            }
+            // console.log(new Date().getTime() - reactionTime)
+
+            requestAnimationFrame(updateCircle);
+        }
+
+
+        startButton.addEventListener('click', function () {
+            chosenTime = chosenTimeS.value;
+            console.log(chosenTime)
+            if (chosenTime === '' || !(/^\d+$/.test(chosenTime)) || parseInt(chosenTime) < 2 || parseInt(chosenTime) > 45) {
+                alert('Невалидная форма записи')
+            } else {
+                startTime = new Date().getTime();
+                chosenTimeS.style.display = 'none';
+                words.style.display = 'none';
+                testMode = true;
+                startButton.style.display = 'none'; // Скрыть кнопку "Начать"
+                updateCircle();
+            }
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.code === 'Space' && testMode) {
+                if (reactionTime !== 0 && !clicked) {
+                    let userReactionTime = new Date().getTime() - reactionTime;
+                    console.log('Ваша реакция: ' + userReactionTime.toFixed(2) + ' мс');
+                    clicked = true;
+                    wholeCircle = false;
+                    reactionTimes.push(userReactionTime)
+
+                } else {
+                    console.log('Промах! Нажмите пробел, когда круг проходит звездочку.');
+                }
+                reactionTime = 0;
+            }
+        });
+
+    })
+    ;
+</script>
+</body>
+</html>

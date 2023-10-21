@@ -1,0 +1,65 @@
+
+div#autorization{
+    text-align: right;
+    letter-spacing: 40px;
+    margin-right: 40px;
+}
+div#autorization>form>button{
+    font-family: "Agency FB Cyrillic";
+    font-size: larger;
+    width: 100px;
+    height: 40px;
+}
+
+form#reg{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    color: white;
+}
+body {
+    line-height: 1.5;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.main {
+    width: 400px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+h1 {
+    font-family: Courier, monospace;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+#words {
+    margin-bottom: 10px;
+}
+
+#chosenTimeS {
+    margin-bottom: 10px;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    font-family: Courier, monospace;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-weight: bold;
+}
+

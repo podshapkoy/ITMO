@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:import="java.lang.Math">
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты тестов</title>
+    <style>
+        #testMessage {
+            font-size: 2rem;
+            color: white;
+            margin-top: 20px;
+            white-space: pre-line;
+            padding-top: 10px;
+        }
+        h1{
+            margin: 2rem;
+            text-align: center;
+            font-size: 1.8rem;
+            color: white;
+            background-color: #333;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{blocks/header_2 :: header}"></div>
+<div th:if="${oneTestResult == null or oneTestResult.size() == 0}">
+    <h1>Пользователь еще не прошел данный тест</h1>
+</div>
+<div th:unless="${oneTestResult == null or oneTestResult.size() == 0}">
+    <div th:each="result, iterStat : ${oneTestResult}">
+        <div>
+            <span id="testMessage"></span>
+        </div>
+        <input type="hidden" th:value="${iterStat.index}" id="index">
+        <input type="hidden" th:value="${result.getResults()}" id="results">
+        <input type="hidden" th:value="${result.getLabels()}" id="labels">
+        <script th:inline="javascript">
+            labels = document.getElementById('labels').value.replace('[', '').replace(']', '').split(',').map(label => label.trim());
+            results = document.getElementById('results').value.replace('[', '').replace(']', '').split(',').map(Number);
+            let index = parseInt(document.getElementById('index').value)+1;
+            console.log(labels)
+            console.log(results)
+            let message = 'Тест ' + index + '.\n';
+            for (let i = 0; i < labels.length; i++) {
+                if (isNaN(results[i])) {
+                    message += labels[i] + ': Не обнаружено,\n';
+                } else {
+                    message += labels[i] + ': ' + results[i] + ',\n';
+                }
+            }
+            document.getElementById('testMessage').innerText = message;
+        </script>
+    </div>
+</div>
+
+</body>
+</html>
