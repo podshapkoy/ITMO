@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../font/Montserrat-Thin.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #39444c;
+    color: #abb6c2;
+}
+
+.container {
+    max-width: 90%;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #3e516b;
+    border-radius: 20px;
+}
+
+.top-bar {
+    background-color: #3e516b;
+    padding: 20px 0;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.lab-button {
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    /* Добавим тень и изменение цвета текста при наведении */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lab-button:hover {
+    background-color: #45a049;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.lab-button a {
+    text-decoration: none;
+    color: inherit;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.block {
+    width: calc(100% - 10%); /* 25% ширины контейнера минус отступы */
+    height: 30%;
+    margin: 20px;
+    border-radius: 15px;
+    transition: opacity 1s linear;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Центрирование содержимого */
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.img, .span {
+    padding: 10px; /* Равномерные отступы внутри блока */
+}
+span{
+    font-size: 4rem;
+}
+p{
+    font-size: 1.5rem;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .lab-button {
+        margin: 5px;
+    }
+}
