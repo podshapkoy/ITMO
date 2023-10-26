@@ -185,7 +185,7 @@ function submitForm(event) {
             var scriptExecutionTimeInSeconds = ((scriptEndTime - scriptStartTime) / 1000).toFixed(4);
 
             var queryString = `?X=${data.X}&Y=${data.Y}&R=${data.R}&Inside=${data.Inside}&LocalTime=${currentTimeMoscow}&ScriptExecutionTime=${scriptExecutionTimeInSeconds}`;
-            window.location.href = "results.html" + queryString;
+            window.location.href = "results.jsp" + queryString;
 
             var storedData = localStorage.getItem("tableData");
             var newData = {

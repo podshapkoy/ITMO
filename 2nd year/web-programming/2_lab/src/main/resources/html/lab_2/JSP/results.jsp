@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,7 +8,7 @@
 </head>
 <body>
 <div class="top-bar">
-    <h1><a href="1_lab.html">podshapkoy</a></h1>
+    <h1><a href="lab_2.jsp">podshapkoy</a></h1>
 </div>
 
 <div class="container">

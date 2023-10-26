@@ -1,10 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <link rel="stylesheet" type="text/css" href="../../static/css/style_1lab.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="icon" href="../../static/img/3img.png" type="image/png">
-    <title>1 lab</title>
+    <title>2 lab</title>
 </head>
 <body onload="setChoiceR();setChoiceX()">
 <div class="top-bar">
@@ -22,12 +23,11 @@
     <h1>Выберите значение R, чтобы появился график с заданным радиусом</h1><br>
     <div id="message-box" class="message-box"></div>
     <div class="container-form">
-        <!--        <div class="coordinate_img"><img src="../../static/img/2img.jpg"></div>-->
         <div class="coordinate_img">
             <canvas id="coordinateCanvas" width="400" height="400"></canvas>
         </div>
         <div class="form">
-            <form id="data-form" method="POST" action="results.html" target="_self">
+            <form id="data-form" method="POST" action="results.jsp" target="_self">
                 <div class="block_R">
                     <h2>Изменение R: </h2>
                     <div class="radio-buttons" onclick="setChoiceR()">
