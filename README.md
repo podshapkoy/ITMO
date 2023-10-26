@@ -6,7 +6,7 @@
 ## Ссылки на курсы
 
 1. [Первый курс (2022-2023)](https://github.com/podshapkoy/ITMO/tree/master/1nd%20year) 
-2. [Второй курс (2023-2024)](https://github.com/podshapkoy/ITMO/tree/master/2nd%20year/web-programming) 
+2. [Второй курс (2023-2024)](https://github.com/podshapkoy/ITMO/tree/master/2nd%20year) 
 
 
 
