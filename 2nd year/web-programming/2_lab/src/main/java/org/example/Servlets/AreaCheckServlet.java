@@ -68,7 +68,6 @@ public class AreaCheckServlet extends HttpServlet {
     private boolean isInsideCircleQuarter(double x, BigDecimal y, double r) {
         return (x >= 0) && (y.compareTo(BigDecimal.ZERO) <= 0) && (x * x + y.pow(2).doubleValue() <= r * r);
     }
-
     private boolean isInsideTriangle(double x, BigDecimal y, double r) {
         BigDecimal x1 = BigDecimal.ZERO;
         BigDecimal y1 = BigDecimal.ZERO;
@@ -77,9 +76,19 @@ public class AreaCheckServlet extends HttpServlet {
         BigDecimal x3 = new BigDecimal(r);
         BigDecimal y3 = BigDecimal.ZERO;
 
-        BigDecimal alpha = y2.subtract(y3).multiply(BigDecimal.valueOf(x)).add(x3.subtract(x2).multiply(y.subtract(y3))).divide(y2.subtract(y3).multiply(x1.subtract(x3)).add(x3.subtract(x2).multiply(y1.subtract(y3))), 15, BigDecimal.ROUND_HALF_UP);
+        BigDecimal bigX = BigDecimal.valueOf(x);
 
-        BigDecimal beta = y3.subtract(y1).multiply(BigDecimal.valueOf(x)).add(x1.subtract(x3).multiply(y.subtract(y3))).divide(y2.subtract(y3).multiply(x1.subtract(x3)).add(x3.subtract(x2).multiply(y1.subtract(y3))), 15, BigDecimal.ROUND_HALF_UP);
+        BigDecimal alpha = (y2.subtract(y3)).multiply(bigX.subtract(x3)).add((x3.subtract(x2)).multiply(y.subtract(y3)))
+                .divide((y2.subtract(y3))
+                        .multiply(x1.subtract(x3))
+                        .add((x3.subtract(x2))
+                                .multiply(y1.subtract(y3))), BigDecimal.ROUND_HALF_UP);
+
+        BigDecimal beta = (y3.subtract(y1)).multiply(bigX.subtract(x3)).add((x1.subtract(x3)).multiply(y.subtract(y3)))
+                .divide((y2.subtract(y3))
+                        .multiply(x1.subtract(x3))
+                        .add((x3.subtract(x2))
+                                .multiply(y1.subtract(y3))), BigDecimal.ROUND_HALF_UP);
 
         BigDecimal gamma = BigDecimal.ONE.subtract(alpha).subtract(beta);
 
