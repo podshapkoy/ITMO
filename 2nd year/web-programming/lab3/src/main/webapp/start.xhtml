@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Стартовая страница</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style_1lab.css"/>
+    <script type="text/javascript">
+        function updateClock() {
+            var currentTime = new Date();
+
+            var hours = currentTime.getHours();
+            var minutes = currentTime.getMinutes();
+            var seconds = currentTime.getSeconds();
+
+            var day = currentTime.getDate();
+            var month = currentTime.getMonth() + 1;
+            var year = currentTime.getFullYear();
+
+            hours = (hours &lt; 10 ? "0" : "") + hours;
+            minutes = (minutes &lt; 10 ? "0" : "") + minutes;
+            seconds = (seconds &lt; 10 ? "0" : "") + seconds;
+
+            var formattedDateTime = day + "." + month + "." + year + " " + hours + ":" + minutes + ":" + seconds;
+
+            document.getElementById("clock").innerHTML = formattedDateTime;
+        }
+
+        setInterval(updateClock, 5000);
+        window.onload = updateClock;
+    </script>
+</h:head>
+
+<h:body>
+    <div class="top-bar">
+        <h1><a>podshapkoy</a></h1>
+    </div>
+
+    <div class="container">
+        <h1>Khvostova Irina Leonidovna P-3224</h1>
+        <h1>VARIANT 2001</h1>
+        <div id="clock" class="clock"></div>
+        <br/>
+        <div class="button-container">
+            <h:form styleClass="button_submit">
+                <p:commandButton styleClass="button_submit" value="Перейти к форме"
+                                 action="#{navigationBean.redirectToMainPage}"/>
+            </h:form>
+        </div>
+        <div class="container-gif">
+            <img class="gif" src="static/img/main.gif" alt=""/>
+        </div>
+    </div>
+</h:body>
+
+</html>

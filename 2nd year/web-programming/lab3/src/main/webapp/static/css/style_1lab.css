@@ -1,0 +1,355 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('font/Montserrat-Thin.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.clock {
+    font-family: 'Montserrat', sans-serif;
+    color: #691414;
+    font-weight: bold;
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 20px;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    background-color: #EBA7B3;
+    color: #985146;
+}
+
+.container-gif {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.container {
+    max-width: 90%;
+    margin: 30px auto;
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
+    background-color: #FEECEF;
+    border-radius: 20px;
+}
+
+.container p {
+    font-size: 200%;
+    text-align: center;
+}
+
+.message-box {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-top: 20%;
+    z-index: 1000;
+}
+
+.message {
+    color: white;
+    font-weight: bold;
+    background-color: rgba(255, 0, 196, 0.77);
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+
+.top-bar {
+    background-color: #985146;
+    padding: 20px 0;
+    color: #FEECEF;
+}
+
+.top-bar a {
+    transition: color 0.5s ease, font-size 0.5s ease;
+}
+
+.top-bar a:hover {
+    color: rgba(255, 222, 0, 0.5);
+    font-size: 92%;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.block {
+    width: calc(100% - 10%); /* 25% ширины контейнера минус отступы */
+    height: 30%;
+    margin: 20px;
+    background: rgba(68, 72, 29, 0.56);
+    border-radius: 15px;
+    transition: opacity 1s linear;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.coordinate_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+#coordinate_img {
+    width: 400px;
+    height: 400px;
+}
+
+.img, .span {
+    padding: 10px;
+}
+
+span {
+    font-size: 2rem;
+}
+
+/* Стили для формы */
+form {
+    display: flex;
+    align-items: center;
+}
+
+.form {
+    color: #39444c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.58);
+    border-radius: 10px;
+    max-width: 80%;
+    margin: 0 auto;
+    width: calc(80% - 10%);
+}
+
+.block h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.block_X,
+.block_Y,
+.block_R {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.radio-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+input[type="text"],
+input[type="button"] {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+label {
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.radio-buttons button {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #985146;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 12%;
+    transition: background-color 0.3s ease;
+}
+
+.radio-buttons button:hover {
+    background-color: #333333;
+}
+
+.block_R button.selected {
+    background-color: #333333;
+    color: #fff;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+.button_submit {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50%;
+    background-color: rgb(51, 51, 51);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.button_submit:last-child {
+    margin-right: 0;
+}
+
+.button_submit:hover {
+    background-color: #5d312a;
+}
+
+/*!* Стили для слайдера *!*/
+/*.rSlider {*/
+/*    width: 40%;*/
+/*    margin-top: 10px;*/
+/*}*/
+
+/*.ui-slider {*/
+/*    width: 50% !important;*/
+/*}*/
+
+/*.ui-slider-horizontal {*/
+/*    height: 8px;*/
+/*    background: #d3d3d3;*/
+/*    border-radius: 5px;*/
+/*}*/
+
+/*.ui-slider-handle {*/
+/*    width: 6px;*/
+/*    height: 6px;*/
+/*    background: #333333;*/
+/*    border-radius: 50%;*/
+/*    cursor: pointer;*/
+/*    margin-top: -6px;*/
+/*}*/
+
+/*.ui-slider-range {*/
+/*    background: #333333;*/
+/*    height: 8px;*/
+/*    border-radius: 5px;*/
+/*}*/
+/*.ui-slider-tip {*/
+/*    display: block !important;*/
+/*    width: auto !important;*/
+/*    padding: 5px;*/
+/*    text-align: center;*/
+/*    font-size: 12px;*/
+/*    border-radius: 4px;*/
+/*    background: #333;*/
+/*    color: white;*/
+/*    position: absolute;*/
+/*    cursor: default;*/
+/*}*/
+
+
+
+/* Стили для таблицы результатов */
+.result-table {
+    font-size: 20px;
+    color: #1f1f1f;
+    font-weight: 400;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.result-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.result-table caption {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.result-column, .result-table td {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.result-column {
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    font-size: 20%;
+}
+
+.result-table tbody tr.not-inside {
+    background-color: rgba(230, 0, 255, 0.34);
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .lab-button {
+        margin: 5px;
+    }
+}
