@@ -1,4 +1,5 @@
 package org.example.beans;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -12,67 +13,46 @@ public class ResultData implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "x", nullable = false)
-    private BigDecimal x;
-
-    @Column(name = "y", nullable = false)
+    private double x;
     private BigDecimal y;
-
-    @Column(name = "r", nullable = false)
     private BigDecimal r;
-
-    @Column(name = "inside", nullable = false)
     private boolean inside;
-
-    @Column(name = "local_date_time", nullable = false)
     private LocalDateTime localDateTime;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public BigDecimal getX() {
-        return x;
-    }
-
-    public void setX(BigDecimal x) {
+    public void setX(double x) {
         this.x = x;
+    }
+    public void setY(BigDecimal y) {
+        this.y = y;
+    }
+    public void setR(BigDecimal r) {
+        this.r = r;
+    }
+    public void setInside(boolean inside) {
+        this.inside = inside;
+    }
+
+    public void setLocalDateTime(LocalDateTime localDateTime) {
+        this.localDateTime = localDateTime;
+    }
+
+    public double getX() {
+        return x;
     }
 
     public BigDecimal getY() {
         return y;
     }
 
-    public void setY(BigDecimal y) {
-        this.y = y;
-    }
-
     public BigDecimal getR() {
         return r;
     }
 
-    public void setR(BigDecimal r) {
-        this.r = r;
-    }
-
-    public boolean isInside() {
+    public boolean getInside() {
         return inside;
     }
-
-    public void setInside(boolean inside) {
-        this.inside = inside;
-    }
-
     public LocalDateTime getLocalDateTime() {
         return localDateTime;
-    }
-
-    public void setLocalDateTime(LocalDateTime localDateTime) {
-        this.localDateTime = localDateTime;
     }
 }
 

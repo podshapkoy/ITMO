@@ -21,7 +21,7 @@
         <div class="button-container">
             <h:form styleClass="button_submit">
                 <p:commandButton styleClass="button_submit" value="Вернуться назад"
-                                 action="#{navigationBean.redirectToStartPage}"/>
+                                 action="toStart"/>
             </h:form>
         </div>
         <h:form id="data-form" prependId="false">
@@ -31,28 +31,28 @@
             <div class="form">
                 <div class="block_R">
                     <p:outputLabel for="inputR" value="R:"/>
-                    <p:inputText id="inputR" value="#{bean.r}" required="true" label="R"/>
+                    <p:inputText id="inputR" value="#{beans.r}" required="true" label="R"/>
                 </div>
                 <div class="block_X">
                     <p:outputLabel for="inputX" value="X:"/>
-                    <p:slider styleClass="ui-slider" id="inputX" for="inputX" value="#{bean.x}" minValue="-4" maxValue="4" step="0.1">
+                    <p:slider styleClass="ui-slider" id="inputX" for="inputX" value="#{beans.x}" minValue="-4" maxValue="4" step="0.1">
                         <p:ajax event="slideEnd" update="displayX" />
                     </p:slider>
-                    <h:outputText id="displayX" value="#{bean.x}">
+                    <h:outputText id="displayX" value="#{beans.x}">
                         <f:convertNumber pattern="#0.0" />
                     </h:outputText>
                 </div>
 
                 <div class="block_Y">
                     <p:outputLabel for="inputY" value="Y:"/>
-                    <p:inputText id="inputY" value="#{bean.y}" required="true" label="Y"/>
+                    <p:inputText id="inputY" value="#{beans.y}" required="true" label="Y"/>
                 </div>
-                <p:commandButton styleClass="button_submit" value="Проверить попадание" action="#{bean.submitForm}" />
+                <p:commandButton styleClass="button_submit" value="Проверить попадание" action="#{beans.submitForm}" />
             </div>
         </h:form>
 
         <div class="result-table">
-            <p:dataTable id="result-row" var="result" value="#{bean.resultTable}">
+            <p:dataTable id="result-row" var="result" value="#{beans.hits}">
                 <p:column headerText="X" styleClass="result-column">
                     <h:outputText value="#{result.x}"/>
                 </p:column>
@@ -63,7 +63,7 @@
                     <h:outputText value="#{result.r}"/>
                 </p:column>
                 <p:column headerText="Result" styleClass="result-column">
-                    <h:outputText value="#{result.inside ? 'Попадание' : 'Промах'}"/>
+                    <h:outputText value="#{result.inside}"/>
                 </p:column>
                 <p:column headerText="Time" styleClass="result-column">
                     <h:outputText value="#{result.localDateTime}"/>
