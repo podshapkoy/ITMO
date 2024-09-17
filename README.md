@@ -11,4 +11,4 @@
 
 
 ## DBMS-administration
-1. [Laboratory work on distributed data storage systems (storage, DBMS)](https://github.com/podshapkoy-organization/DBMS-administration?tab=readme-ov-file) 
+[Laboratory work on distributed data storage systems (storage, DBMS)](https://github.com/podshapkoy-organization/DBMS-administration?tab=readme-ov-file) 
