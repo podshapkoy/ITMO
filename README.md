@@ -10,8 +10,14 @@
 
 
 
-## DBMS-administration
+## DBMS administration
 Laboratory work on distributed data storage systems (storage, DBMS)
 
-1. [Full-text source code search](https://github.com/podshapkoy-organization/dbms-lab-1) 
+1. [Full-text source code search](https://github.com/podshapkoy-organization/dbms-lab-1)
+
+# Artificial intelligence systems
+Laboratory work on artificial intelligence systems
+
+1. [Knowledge bases and ontologies](https://github.com/podshapkoy-organization/ais-lab-1)
+2. [Development of a decision support system based on a knowledge base or ontology](https://github.com/podshapkoy-organization/ais-lab-2)
 
