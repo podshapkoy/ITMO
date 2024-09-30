@@ -21,4 +21,5 @@ Laboratory work on artificial intelligence systems
 1. [Knowledge bases and ontologies](https://github.com/podshapkoy-organization/ais-lab-1)
 2. [Development of a decision support system based on a knowledge base or ontology](https://github.com/podshapkoy-organization/ais-lab-2)
 3. [Linear regression](https://github.com/podshapkoy-organization/ais-lab-3)
+4. [The k-nearest neighbors (KNN) algorithm](https://github.com/podshapkoy-organization/ais-lab-4)
 
